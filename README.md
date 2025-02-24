@@ -46,12 +46,3 @@ The tracking system uses OpenCV's built-in `cv2.TrackerCSRT_create()` algorithm.
 - Ensure all dependencies are installed.
 - Run the script and follow the on-screen instructions to select and track an object.
 
-## Contributing
-If you have suggestions or improvements, feel free to open a pull request.
-
-## License
-This project is open-source and available under the MIT License.
-
----
-For any inquiries, contact: t.senosy@eyego.ai
-
