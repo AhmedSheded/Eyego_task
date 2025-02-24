@@ -39,8 +39,7 @@ The tracking system uses OpenCV's built-in `cv2.TrackerCSRT_create()` algorithm.
 5. Saving the tracking output to `output.avi`.
 
 ## Demo
-## Demo  
-[![Watch the video](https://drive.google.com/thumbnail?id=<file_id>)](https://drive.google.com/file/d/<file_id>/preview)
+![Tracking Demo](https://raw.githubusercontent.com/ahmedsheded/Eyego_task/main/assets/output.gif)
 
 
 ## Deployment Instructions
