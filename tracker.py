@@ -2,20 +2,16 @@ import cv2
 
 def main():
     cap = cv2.VideoCapture(0)
-    if not cap.isOpened():
-        print("[ERROR] Couldn't access the webcam.")
-        return
-    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = 30
 
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter('output.avi', fourcc, fps, (frame_width, frame_height))
 
-    ret, frame = cap.read()
-    if not ret:
-        print("[ERROR] Couldn't grab a frame.")
-        return
+    # frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    # frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    # fps = 30
+    #
+    # fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    # out = cv2.VideoWriter('output.avi', fourcc, fps, (frame_width, frame_height))
+    #
+    _, frame = cap.read()
 
     print("Select an object to track and press SPACE or ENTER.")
     bbox = cv2.selectROI("Tracker", frame, fromCenter=False, showCrosshair=True)
@@ -27,7 +23,6 @@ def main():
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
-            print("[WARNING] Lost connection to the webcam.")
             break
 
         success, bbox = tracker.update(frame)
@@ -37,7 +32,7 @@ def main():
         else:
             cv2.putText(frame, "Tracking Lost", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-        out.write(frame)
+        # out.write(frame)
 
         cv2.imshow("Object Tracker", frame)
 
@@ -46,7 +41,7 @@ def main():
             break
 
     cap.release()
-    out.release()
+    # out.release()
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
